@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KineticWave: Parametric Sound Waveform & Interference Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <h1>KineticWave</h1>
+            <p class="subtitle">Parametric Sound Waveform & Interference Laboratory</p>
+        </div>
+        <div class="master-controls">
+            <button id="playAudioBtn" class="btn btn-primary" aria-pressed="false">🔊 Enable Audio Preview</button>
+            <button id="resetBtn" class="btn btn-secondary">Reset Defaults</button>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <section class="canvas-section">
+            <div class="canvas-container">
+                <canvas id="waveCanvas" width="900" height="350" aria-label="Waveform visualization canvas" role="img"></canvas>
+                <div class="canvas-overlay-info">
+                    <span id="fpsDisplay">60 FPS</span>
+                    <span id="interferenceStatus">Constructive Interference Active</span>
+                </div>
+            </div>
+
+            <div class="presets-bar">
+                <span class="label">Presets:</span>
+                <button class="preset-btn active" data-preset="unison">Unison</button>
+                <button class="preset-btn" data-preset="beats">Acoustic Beats</button>
+                <button class="preset-btn" data-preset="octave">Octave Harmony</button>
+                <button class="preset-btn" data-preset="cancellation">Phase Cancellation</button>
+                <button class="preset-btn" data-preset="standing">Standing Wave</button>
+            </div>
+        </section>
+
+        <section class="control-dashboard">
+            <div class="panel-header">
+                <h2>Wave Sources</h2>
+                <button id="addWaveBtn" class="btn btn-small">+ Add Wave Source</button>
+            </div>
+            <div id="wavesContainer" class="waves-grid">
+                <!-- Wave controls will be populated dynamically -->
+            </div>
+        </section>
+
+        <section class="analysis-section">
+            <div class="card">
+                <h3>Interference Metrics</h3>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-label">Max Amplitude (Combined)</span>
+                        <span id="maxAmpVal" class="metric-value">2.00</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Beat Frequency</span>
+                        <span id="beatFreqVal" class="metric-value">0.00 Hz</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Dominant Wavelength</span>
+                        <span id="wavelengthVal" class="metric-value">3.40 m</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Energy Density</span>
+                        <span id="energyVal" class="metric-value">Moderate</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Lissajous Phase Figure</h3>
+                <div class="lissajous-container">
+                    <canvas id="lissajousCanvas" width="180" height="180" aria-label="Lissajous pattern canvas" role="img"></canvas>
+                    <p class="card-hint">Compares Wave 1 and Wave 2 phase trajectories.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>KineticWave Lab &bull; Interactive Educational Physics Demonstration</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
